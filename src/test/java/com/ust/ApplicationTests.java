@@ -1,28 +1,27 @@
 package com.ust;
 
+import com.ust.user.User;
+import com.ust.user.UserService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.Assert;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 class ApplicationTests {
 
-	@Autowired
-	private BookService bookService;
+    @Autowired
+    private UserService userService;
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
-	@Test
-	public void whenAppStarts_thenHibernateCreatesInitialRecords(){
-		List<Book> books = bookService.getBooks();
-		org.junit.Assert.assertEquals(3, books.size());
-	}
+    @Test
+    public void whenAppStarts_thenHibernateCreatesInitialRecords() {
+        List<User> users = userService.getUsers();
+        Assertions.assertEquals(3, users.size());
+    }
 }

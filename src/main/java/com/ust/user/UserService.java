@@ -1,4 +1,4 @@
-package com.ust;
+package com.ust.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,12 +6,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class BookService {
+public class UserService {
 
     @Autowired
-    private BookRepository bookRepository;
+    private UserRepository userRepository;
 
-    public List<Book> getBooks(){
-        return bookRepository.findAll();
+    public List<User> getUsers() {
+
+        return userRepository.findAll();
     }
 }
