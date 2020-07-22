@@ -1,0 +1,9 @@
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+ddddd    eeeeee   v        v
+d    d   e         v      v
+d    d   eee        v    v
+d    d   e           v  v
+dddd     eeeeee       v
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
