@@ -1,3 +1,3 @@
-insert into user values(1, 'John Brown');
-insert into user values(2, 'Alice White');
-insert into user values(3, 'Ben Johnson');
+insert into user (username) values('John Brown');
+insert into user (username) values('Alice White');
+insert into user (username) values('Ben Johnson');
