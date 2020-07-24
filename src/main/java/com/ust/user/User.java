@@ -16,10 +16,10 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
     private String email;
     private String password;
     private String role;
+    private String username;
 
     public User(String username, String email, String password, String role) {
         this.username = username;

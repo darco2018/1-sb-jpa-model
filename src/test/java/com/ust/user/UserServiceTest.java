@@ -16,6 +16,6 @@ public class UserServiceTest {
     @Test
     public void whenAppStarts_thenHibernateCreatesInitialRecords() {
         List<User> users = userService.getUsers();
-        Assertions.assertEquals(3, users.size());
+        Assertions.assertEquals(6, users.size());
     }
 }
