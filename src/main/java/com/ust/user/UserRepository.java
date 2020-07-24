@@ -21,6 +21,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     int getDisctinctNumberOfUserRolesNative();
 
   // in JPQL you have to use tha Java name of the entity class; or @Entity(name = "users")
-  @Query(value = "SELECT u from users u WHERE u.email = ?1 AND u.username = ?2")
+  @Query(value = "SELECT u from User u WHERE u.email = ?1 AND u.username = ?2")
     List<User> getithEmailAndNameJPQL(String email, String username);
 }
