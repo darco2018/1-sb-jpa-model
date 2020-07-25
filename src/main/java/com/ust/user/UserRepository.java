@@ -5,11 +5,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    List<User> findUsersByUsername(String username);
+    List<User> findAllByUsername(String username);
 
     List<User> findAllByEmailContaining(String expression);
 
@@ -23,4 +24,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
   // in JPQL you have to use tha Java name of the entity class; or @Entity(name = "users")
   @Query(value = "SELECT u from User u WHERE u.email = ?1 AND u.username = ?2")
     List<User> getithEmailAndNameJPQL(String email, String username);
+
+
+    Optional<User> findByUsername(String darek);
 }
