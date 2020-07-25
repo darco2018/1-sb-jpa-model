@@ -21,7 +21,7 @@ public class DataLoader implements CommandLineRunner {
     @Override
   public void run(String ...args) throws Exception {
         // will work but breaks tests
-       //userRepository.save(new User("darek@zoho.com", "darek987", "ADMIN", "darek"));
+       userRepository.save(new User("CLuser@zoho.com", "CLuser987", "ADMIN", "CLuser"));
        logger.info("App Runner ---------------------> App Runner ----------------------------App Runner ");
    }
 }

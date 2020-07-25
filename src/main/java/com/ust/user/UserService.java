@@ -1,15 +1,21 @@
 package com.ust.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    // Unrecommended alternative:
+    // @Autowired
+    // private  UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public List<User> getUsers() {
         return userRepository.findAll();
@@ -36,6 +42,11 @@ public class UserService {
     }
 
     public List<User> getUsersWithEmailAndName(String email, String username) {
-        return  userRepository.getithEmailAndNameJPQL(email, username);
+        return  userRepository.getEmailAndNameJPQL(email, username);
+    }
+
+    public Optional<User> getUserByUsername(String username) {
+        return  userRepository.findByUsername(username);
     }
 }
+

@@ -22,9 +22,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     int getDisctinctNumberOfUserRolesNative();
 
   // in JPQL you have to use tha Java name of the entity class; or @Entity(name = "users")
+    // When using parameters don't use semicolon at the end of query!!!
   @Query(value = "SELECT u from User u WHERE u.email = ?1 AND u.username = ?2")
-    List<User> getithEmailAndNameJPQL(String email, String username);
-
+    List<User> getEmailAndNameJPQL(String email, String username);
 
     Optional<User> findByUsername(String darek);
 }

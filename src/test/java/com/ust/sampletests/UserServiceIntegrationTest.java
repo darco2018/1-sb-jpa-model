@@ -1,5 +1,7 @@
-package com.ust.user;
+package com.ust.sampletests;
 
+import com.ust.user.User;
+import com.ust.user.UserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-public class UserServiceTest {
+public class UserServiceIntegrationTest {
 
     @Autowired
     private UserService userService;
@@ -17,7 +19,7 @@ public class UserServiceTest {
     @Test
     public void whenAppStarts_thenHibernateCreatesInitialRecords() {
         List<User> users = userService.getUsers();
-        Assertions.assertEquals(6, users.size());
+        Assertions.assertEquals(6+1, users.size());
     }
 
     //---------- Custom SpringData queries using method names ------------------
@@ -44,7 +46,7 @@ public class UserServiceTest {
     @Test
     public void getsAllUsersWhereNameBetweenTwoStrings()  {
         List<User> users = userService.getsAllWhereNameBetween("A", "D");
-        Assertions.assertEquals(3, users.size());
+        Assertions.assertEquals(3+1, users.size());
     }
 
     //---------- Custom SpringData queries using native SQL ------------------
