@@ -1,21 +1,24 @@
 package com.ust.user;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 @Service
 public class UserService {
 
     // Unrecommended alternative:
     // @Autowired
     // private  UserRepository userRepository;
-    private final UserRepository userRepository;
+    @NonNull private final  UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
+   /* public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-    }
+    }*/
 
     public List<User> getUsers() {
         return userRepository.findAll();
