@@ -5,7 +5,6 @@ import com.ust.user.UserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
@@ -18,7 +17,7 @@ public class UserServiceIntegrationTest {
 
     @Test
     public void whenAppStarts_thenHibernateCreatesInitialRecords() {
-        List<User> users = userService.getUsers();
+        List<User> users = userService.findAllUsers();
         Assertions.assertEquals(6+1, users.size());
     }
 
@@ -26,7 +25,7 @@ public class UserServiceIntegrationTest {
 
     @Test
     public void getsAllUsersByUsername() {
-        List<User> users = userService.getUsersByUsername("John Brown");
+        List<User> users = userService.findAllUsersByUsername("John Brown");
         Assertions.assertEquals(1, users.size());
         Assertions.assertEquals("John Brown", users.get(0).getUsername());
     }

@@ -31,7 +31,7 @@ public class UserServiceTest_4 {
         String username = "darek";
 
         //act
-        Optional<User> found = userService.getUserByUsername(username);
+        Optional<User> found = userService.findUserByUsername(username);
 
         // assert
         Assertions.assertThat(found.get().getUsername())
@@ -44,7 +44,7 @@ public class UserServiceTest_4 {
         String username = "darek";
 
         //act
-        Optional<User> found = userService.getUserByUsername(username);
+        Optional<User> found = userService.findUserByUsername(username);
 
         // assert
         Assertions.assertThat(found.get().getUsername())
@@ -57,7 +57,7 @@ public class UserServiceTest_4 {
         String username = "darek";
 
         //act
-        Optional<User> found = userService.getUserByUsername(username);
+        Optional<User> found = userService.findUserByUsername(username);
 
         // assert
         Assertions.assertThat(found.get().getUsername())

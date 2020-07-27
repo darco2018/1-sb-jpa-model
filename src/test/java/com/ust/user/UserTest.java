@@ -13,7 +13,7 @@ public class UserTest {
     }
 
     @Test
-    public void existAllArgsConstructorAndGetters() {
+    public void existsAllArgsConstructorAndGetters() {
 
         User user = new User(1L, "zorro@gmail.com", "zorro123", "ADMIN", "zorro");
         testGetters(user);
@@ -35,7 +35,7 @@ public class UserTest {
     }
 
     @Test
-    public void equalsHashcodeVerify() {
+    public void verifyEqualsHashcode() {
 
         User user1 = new User(1L, "zorro@gmail.com", "zorro123", "ADMIN", "zorro");
         User user2 = new User(1L, "zorro@gmail.com", "zorro123", "ADMIN", "zorro");

@@ -10,15 +10,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.util.List;
 import java.util.Optional;
 
 // junit4 @RunWith(MockitoJUnitRunner.class)
@@ -79,7 +74,7 @@ public class UserServiceUnitTest {
         System.out.println(userService);
 
         //act
-        Optional<User> found = userService.getUserByUsername(username);
+        Optional<User> found = userService.findUserByUsername(username);
 
         // assert
         Assertions.assertThat(found.get().getUsername())
@@ -94,7 +89,7 @@ public class UserServiceUnitTest {
         System.out.println(userService);
 
         //act
-        Optional<User> found = userService.getUserByUsername(username);
+        Optional<User> found = userService.findUserByUsername(username);
 
         // assert
         Assertions.assertThat(found.get().getUsername())
@@ -109,7 +104,7 @@ public class UserServiceUnitTest {
         System.out.println(userService);
 
         //act
-        Optional<User> found = userService.getUserByUsername(username);
+        Optional<User> found = userService.findUserByUsername(username);
 
         // assert
         Assertions.assertThat(found.get().getUsername())

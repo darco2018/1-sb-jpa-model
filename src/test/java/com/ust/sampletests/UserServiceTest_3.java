@@ -50,7 +50,7 @@ public class UserServiceTest_3 {
         System.out.println(userService);
 
         //act
-        Optional<User> found = userService.getUserByUsername(username);
+        Optional<User> found = userService.findUserByUsername(username);
 
         // assert
         Assertions.assertThat(found.get().getUsername())
@@ -65,7 +65,7 @@ public class UserServiceTest_3 {
         System.out.println(userService);
 
         //act
-        Optional<User> found = userService.getUserByUsername(username);
+        Optional<User> found = userService.findUserByUsername(username);
 
         // assert
         Assertions.assertThat(found.get().getUsername())
@@ -80,7 +80,7 @@ public class UserServiceTest_3 {
         System.out.println(userService);
 
         //act
-        Optional<User> found = userService.getUserByUsername(username);
+        Optional<User> found = userService.findUserByUsername(username);
 
         // assert
         Assertions.assertThat(found.get().getUsername())
