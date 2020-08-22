@@ -48,7 +48,7 @@ public class UserService {
     public User findUserbyId(long id) {
         Optional<User> userOpt = this.userRepository.findById(id);
 
-        return userOpt.orElseThrow(() -> new UserNotFoundExcpetion("No user with id" + id + " in the database."));
+        return userOpt.orElseThrow(() -> new UserNotFoundException("No user with id" + id + " in the database."));
     }
 
     public List<User> findAllUsers() {
@@ -56,6 +56,7 @@ public class UserService {
     }
 
     public Optional<User> findUserByUsername(String username) {
+        // assertThat(cities).extracting(City::getName).containsOnly("Bratislava");
         return userRepository.findByUsername(username);
     }
 
@@ -64,7 +65,7 @@ public class UserService {
     }
 
     public List<User> findUserByEmailAndUsername(String email, String username) {
-        return userRepository.getEmailAndNameJPQL(email, username);
+        return userRepository.getUserByEmailAndUsernameJPQL(email, username);
     }
 
     // ------------ more complex find ---------------------------
@@ -82,7 +83,7 @@ public class UserService {
     }
 
     public int getDisctinctNoOfUserRoles() {
-        return userRepository.getDisctinctNumberOfUserRolesNative();
+        return userRepository.getNumberOfDistinctUserRolesNative();
     }
 
     // ------------ helper ---------------------------

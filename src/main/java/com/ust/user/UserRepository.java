@@ -19,12 +19,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAllByUsernameBetween(String start, String end);
 
   @Query(value = "SELECT  COUNT(DISTINCT role) FROM users;", nativeQuery = true)
-    int getDisctinctNumberOfUserRolesNative();
+    int getNumberOfDistinctUserRolesNative();
 
   // in JPQL you have to use tha Java name of the entity class; or @Entity(name = "users")
     // When using parameters don't use semicolon at the end of query!!!
   @Query(value = "SELECT u from User u WHERE u.email = ?1 AND u.username = ?2")
-    List<User> getEmailAndNameJPQL(String email, String username);
+    List<User> getUserByEmailAndUsernameJPQL(String email, String username);
 
     Optional<User> findByUsername(String darek);
 }

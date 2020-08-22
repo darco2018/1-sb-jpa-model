@@ -23,28 +23,28 @@ public class UserServiceIntegrationTest {
 
     //---------- Custom SpringData queries using method names ------------------
 
-    @Test
+  /*  @Test
     public void getsAllUsersByUsername() {
         List<User> users = userService.findAllUsersByUsername("John Brown");
         Assertions.assertEquals(1, users.size());
         Assertions.assertEquals("John Brown", users.get(0).getUsername());
-    }
+    }*/
 
     @Test
     public void getsAllUsersWhereEmailContainsGivenExpression() {
-        List<User> users = userService.getUsersByEmailContaining("gmail.com");
+        List<User> users = userService.findAllUsersByEmailContaining("gmail.com");
         Assertions.assertEquals(3, users.size());
     }
 
     @Test
     public void getsAllUsersWhereNameLike() {
-        List<User> users = userService.getsAllUsersWhereNameLike("%hn%");
+        List<User> users = userService.findAllUsersWhereUsernameLike("%hn%");
         Assertions.assertEquals(2, users.size());
     }
 
     @Test
     public void getsAllUsersWhereNameBetweenTwoStrings()  {
-        List<User> users = userService.getsAllWhereNameBetween("A", "D");
+        List<User> users = userService.findAllUsersWhereUsernameBetween("A", "D");
         Assertions.assertEquals(3+1, users.size());
     }
 
@@ -58,7 +58,7 @@ public class UserServiceIntegrationTest {
     //---------- Custom SpringData queries using JPQL  ------------------
     @Test
     public void getsUsersWithGivenEmailAndUsername(){
-        List<User> users = userService.getUsersWithEmailAndName("john@gmail.com", "John Brown");
+        List<User> users = userService.findUserByEmailAndUsername("john@gmail.com", "John Brown");
         Assertions.assertEquals(1, users.size());
     }
 }
