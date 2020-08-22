@@ -1,5 +1,6 @@
 package com.ust;
 
+import com.ust.user.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +19,9 @@ public class Application {
 
         SpringApplication.run(Application.class, args);
         logger.info("-------------------------------> SpringApplication's run method finished here...");
+
+
+
 
     }
 

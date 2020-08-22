@@ -36,7 +36,7 @@ public class UserRepositoryIntegrationTest {
     public void savesUserCorrectly() {
         long originalCount = userRepository.count();
 
-        userRepository.save(new User("mike@zoho.com", "mike470", "USER", "mikesoprano"));
+        userRepository.save(new User("mike@zoho.com", "atleasteight", "USER", "mikesoprano"));
 
         Assertions.assertEquals(originalCount + 1L, userRepository.count());
     }
@@ -44,7 +44,7 @@ public class UserRepositoryIntegrationTest {
     @Test
     public void savesUserCorrectly_includingDataFromFileAndCLRunner() {
 
-        userRepository.save(new User("mike@zoho.com", "mike470", "USER", "mikesoprano"));
+        userRepository.save(new User("mike@zoho.com", "mike470eight", "USER", "mikesoprano"));
 
         Assertions.assertEquals(6 + 2 + 1, userRepository.count());
     }

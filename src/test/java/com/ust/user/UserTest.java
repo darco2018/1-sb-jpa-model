@@ -1,9 +1,70 @@
 package com.ust.user;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class UserTest {
+
+
+    private static Validator validator;
+
+    @BeforeEach
+    public  void setUpValidator() {
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        validator = factory.getValidator();
+    }
+
+
+    @Test
+    public void passwordIsNull() {
+
+        User nullPasswordUser = new User("abc@server2", null, "ADMIN", "zo2");
+        Set<ConstraintViolation<User>> constraintViolations = validator.validate(nullPasswordUser);
+        Set<String> messages = new HashSet<>();
+        constraintViolations.forEach(violation -> messages.add(violation.getMessage()));
+
+        assertEquals(2, constraintViolations.size());
+        assertTrue(messages.contains("must not be blank"));
+        assertTrue(messages.contains("must not be null"));
+        //assertEquals("must not be blank", constraintViolations.iterator().next().getMessage());
+    }
+
+    @Test
+    public void passwordIsTooShort() {
+
+        User nullPasswordUser = new User("abc@server2", "123", "ADMIN", "zo2");
+        Set<ConstraintViolation<User>> constraintViolations = validator.validate(nullPasswordUser);
+        Set<String> messages = new HashSet<>();
+        constraintViolations.forEach(violation -> messages.add(violation.getMessage()));
+
+        assertEquals(1, constraintViolations.size());
+        assertEquals("size must be between 8 and 20", constraintViolations.iterator().next().getMessage());
+    }
+
+    @Test
+    public void emailIsNotValid() {
+
+        User invalidEmailUser = new User("notvalid", "12345678", "ADMIN", "zo2");
+        Set<ConstraintViolation<User>> constraintViolations = validator.validate(invalidEmailUser);
+        Set<String> messages = new HashSet<>();
+        constraintViolations.forEach(violation -> messages.add(violation.getMessage()));
+
+        assertEquals(1, constraintViolations.size());
+        assertEquals("must be a well-formed email address", constraintViolations.iterator().next().getMessage());
+    }
+
     @Test
     public void existsNoArgsConstructor() {
         User user = new User();

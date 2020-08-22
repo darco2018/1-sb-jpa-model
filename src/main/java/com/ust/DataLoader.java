@@ -10,6 +10,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -23,5 +25,7 @@ public class DataLoader implements CommandLineRunner {
         // will work but breaks tests
        userRepository.save(new User("CLuser@zoho.com", "CLuser987", "ADMIN", "CLuser"));
        logger.info("App Runner ---------------------> App Runner ----------------------------App Runner ");
+
+       // Arrays.asList(args).forEach(arg -> System.out.println(arg));
    }
 }
